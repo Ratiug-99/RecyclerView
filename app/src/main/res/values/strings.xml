@@ -1,36 +1,48 @@
 <resources>
     <string name="app_name">courrsera_RecyclerView</string>
-    
-    <string-array name="Programing_languages">
-        <item>C++</item>
-        <item>C#</item>
-        <item>Kotlin</item>
-        <item>Java</item>
-        <item>Ruby</item>
-        <item>Swift</item>
-        <item>Basic</item>
-        <item>C++</item>
-        <item>C#</item>
-        <item>Kotlin</item>
-        <item>Java</item>
-        <item>Ruby</item>
-        <item>Swift</item>
-        <item>Basic</item>
+
+    //
+    <string-array name="usernames">
+        <item>HeartTicker </item>
+        <item>YESIMFUNNY</item>
+        <item>BenAfleckIsAnOkActor</item>
+        <item>magicschoolbusdropout</item>
+        <item>Everybody</item>
+        <item>regina_phalange</item>
+        <item>PawneeGoddess </item>
+        <item>pluralizes_everythings</item>
+        <item>chickenriceandbeans</item>
+        <item>test_name_please_ignore</item>
+        <item>IYELLALOT</item>
+        <item>heyyou</item>
+        <item>laugh_till_u_pee</item>
+        <item>aDistraction</item>
+        <item>crazy_cat_lady</item>
+        <item>banana_hammock</item>
+        <item>thegodfatherpart4</item>
+        <item>unfriendme</item>
+        <item>babydoodles</item>
+        <item>fluffycookie</item>
+        <item>ashley_said_what</item>
     </string-array>
-    <string-array name="Programing_discrip">
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
-        <item>About programming language</item>
+    <string-array name="messages">
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
+        <item>Some text</item>
     </string-array>
 </resources>

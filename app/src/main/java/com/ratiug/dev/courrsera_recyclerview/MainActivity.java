@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_list);
 
-        languagesArray = getResources().getStringArray(R.array.Programing_languages);
-        descriptionArray = getResources().getStringArray(R.array.Programing_discrip);
+        languagesArray = getResources().getStringArray(R.array.usernames);
+        descriptionArray = getResources().getStringArray(R.array.messages);
 
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, languagesArray,descriptionArray);
 
