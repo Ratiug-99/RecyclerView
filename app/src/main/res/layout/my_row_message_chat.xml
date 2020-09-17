@@ -21,8 +21,8 @@
            android:padding="8dp"
             android:layout_height="match_parent">
 
-            <ImageView
-                tools:background="@color/colorPrimaryDark"
+            <View
+                android:background="@drawable/circle"
                 android:id="@+id/ivAvatar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

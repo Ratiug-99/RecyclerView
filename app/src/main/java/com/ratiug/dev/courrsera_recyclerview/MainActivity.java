@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.ratiug.dev.courrsera_recyclerview.Adapter.MyAdapter;
+import com.ratiug.dev.courrsera_recyclerview.Adapter.MessageAdapter;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
-    String[] languagesArray;
-    String [] descriptionArray;
+    String[] usernameArray;
+    String [] messageArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_list);
 
-        languagesArray = getResources().getStringArray(R.array.usernames);
-        descriptionArray = getResources().getStringArray(R.array.messages);
+        usernameArray = getResources().getStringArray(R.array.usernames);
+        messageArray = getResources().getStringArray(R.array.messages);
 
-        MyAdapter myAdapter = new MyAdapter(MainActivity.this, languagesArray,descriptionArray);
+        MessageAdapter messageAdapter = new MessageAdapter(MainActivity.this, usernameArray,messageArray);
 
-        recyclerView.setAdapter(myAdapter);
+        recyclerView.setAdapter(messageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

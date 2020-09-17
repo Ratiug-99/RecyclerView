@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ratiug.dev.courrsera_recyclerview.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MessageViewHolder extends RecyclerView.ViewHolder {
 
-    TextView tvNameLang, tvDescrip;
+    TextView tvUsername, tvMessage;
 
 
-    public MyViewHolder(@NonNull View itemView) {
+    public MessageViewHolder(@NonNull View itemView) {
         super(itemView);
-        tvNameLang = itemView.findViewById(R.id.tvNameLanguage);
-        tvDescrip = itemView.findViewById(R.id.tvDescription);
+        tvUsername = itemView.findViewById(R.id.tvUsername);
+        tvMessage = itemView.findViewById(R.id.tvMessageText);
     }
 }
