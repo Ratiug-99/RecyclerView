@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ratiug.dev.courrsera_recyclerview.MainActivity;
 import com.ratiug.dev.courrsera_recyclerview.R;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -27,7 +26,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(mCntext);
-        View view = inflater.inflate(R.layout.my_row_recycler_view,parent,false);
+        View view = inflater.inflate(R.layout.my_row_message_chat,parent,false);
 
         return new MyViewHolder(view);
     }
