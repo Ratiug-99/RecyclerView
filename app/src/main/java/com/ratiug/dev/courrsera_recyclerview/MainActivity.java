@@ -1,6 +1,7 @@
 package com.ratiug.dev.courrsera_recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -24,5 +25,8 @@ public class MainActivity extends AppCompatActivity {
         descriptionArray = getResources().getStringArray(R.array.Programing_discrip);
 
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, languagesArray,descriptionArray);
+
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
