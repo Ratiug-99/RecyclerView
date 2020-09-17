@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">courrsera_RecyclerView</string>
+    
+    <string-array name="Programing_languages">
+        <item>C++</item>
+        <item>C#</item>
+        <item>Kotlin</item>
+        <item>Java</item>
+        <item>Ruby</item>
+        <item>Swift</item>
+        <item>Basic</item>
+    </string-array>
+    <string-array name="Programing_discrip">
+        <item>About programming language</item>
+        <item>About programming language</item>
+        <item>About programming language</item>
+        <item>About programming language</item>
+        <item>About programming language</item>
+        <item>About programming language</item>
+        <item>About programming language</item>
+    </string-array>
 </resources>
