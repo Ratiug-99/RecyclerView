@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
     String [] messageArray;
     int[] images;
 
-    Random rnd = new Random(1337);
+    Random rnd = new Random();
 
     MultiTypesAdapter multiTypesAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { //TODO fix random content List
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
