@@ -21,11 +21,14 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
     private List<RowType> mDataSet;
     String [] mArrayUsername;
     String[] mArrayMessage;
-    TypedArray imgs ;
+    int[] imgs ;
 
 
-    public  MultiTypesAdapter(List<RowType> dataSet){
+    public  MultiTypesAdapter(List<RowType> dataSet, String[] usernames, String[] messages, int[] random_images){
         this.mDataSet = dataSet;
+        mArrayUsername = usernames;
+        mArrayMessage =messages;
+        imgs = random_images;
     }
 
     @Override
@@ -59,10 +62,10 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof MessageViewHolder) {
-            ((MessageViewHolder) holder).tvUsername.setText("mArrayUsername[position]");
-            ((MessageViewHolder) holder).tvMessage.setText("mArrayMessage[position]");
+            ((MessageViewHolder) holder).tvUsername.setText(mArrayUsername[position]);
+            ((MessageViewHolder) holder).tvMessage.setText(mArrayMessage[position]);
         } else if (holder instanceof LandscapeViewHolder) {
-            ((LandscapeViewHolder) holder).landscapeImageView.setImageResource(R.drawable.picture_1);
+            ((LandscapeViewHolder) holder).landscapeImageView.setImageResource(imgs[position]);
         }
     }
 

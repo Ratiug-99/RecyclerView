@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     List<RowType> items = new ArrayList<>();
     String[] usernameArray;
     String [] messageArray;
-    TypedArray imgs ;
+    int[] images;
 
     Random rnd = new Random(1337);
 
     MultiTypesAdapter multiTypesAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //TODO fix random content List
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,9 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
         usernameArray = getResources().getStringArray(R.array.usernames);
         messageArray = getResources().getStringArray(R.array.messages);
-        imgs = getResources().obtainTypedArray(R.array.random_imgs);
 
-        for (int i = 0; i < 20; i++) {
+        images = new int[]{R.drawable.picture_1, R.drawable.picture_2, R.drawable.picture_3, R.drawable.picture_4
+                ,R.drawable.picture_5,R.drawable.picture_6,R.drawable.picture_7,R.drawable.picture_8};
+
+        for (int i = 0; i < 7; i++) {
             switch (rnd.nextInt(2)) {
                 case 0 :
                     items.add(new MessageRowType("test1","messageArray"));
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        multiTypesAdapter = new MultiTypesAdapter(items);
+        multiTypesAdapter = new MultiTypesAdapter(items,usernameArray, messageArray,images);
 
         recyclerView.setAdapter(multiTypesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
