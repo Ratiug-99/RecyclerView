@@ -1,5 +1,6 @@
 package com.ratiug.dev.courrsera_recyclerview;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.ratiug.dev.courrsera_recyclerview.Adapter.MultiTypesAdapter;
 
@@ -54,5 +57,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.addMessageAction:
+                Toast.makeText(this,"Add Message Row",Toast.LENGTH_SHORT).show();
+                items.add(new MessageRowType());
+                multiTypesAdapter.notifyItemInserted(items.size());
+                break;
+            case R.id.addPictureAction :
+                Toast.makeText(this,"Add Picture Row",Toast.LENGTH_SHORT).show();
+                items.add(new ImageRowType());
+                multiTypesAdapter.notifyItemInserted(items.size());
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

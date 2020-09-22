@@ -73,4 +73,7 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return mDataSet.size();
     }
+
+
+
 }
