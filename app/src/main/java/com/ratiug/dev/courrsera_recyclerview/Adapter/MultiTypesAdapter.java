@@ -15,6 +15,7 @@ import com.ratiug.dev.courrsera_recyclerview.R;
 import com.ratiug.dev.courrsera_recyclerview.RowType;
 
 import java.util.List;
+import java.util.Random;
 
 public class MultiTypesAdapter extends RecyclerView.Adapter {
 
@@ -22,6 +23,7 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
     String [] mArrayUsername;
     String[] mArrayMessage;
     int[] imgs ;
+    Random rnd = new Random();
 
 
     public  MultiTypesAdapter(List<RowType> dataSet, String[] usernames, String[] messages, int[] random_images){
@@ -61,11 +63,12 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
         if (holder instanceof MessageViewHolder) {
-            ((MessageViewHolder) holder).tvUsername.setText(mArrayUsername[position]);
-            ((MessageViewHolder) holder).tvMessage.setText(mArrayMessage[position]);
+            ((MessageViewHolder) holder).tvUsername.setText(mArrayUsername[rnd.nextInt(7)]);
+            ((MessageViewHolder) holder).tvMessage.setText(mArrayMessage[rnd.nextInt(7)]);
         } else if (holder instanceof LandscapeViewHolder) {
-            ((LandscapeViewHolder) holder).landscapeImageView.setImageResource(imgs[position]);
+            ((LandscapeViewHolder) holder).landscapeImageView.setImageResource(imgs[rnd.nextInt(7)]);
         }
     }
 
