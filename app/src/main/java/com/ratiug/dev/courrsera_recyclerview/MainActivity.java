@@ -1,6 +1,8 @@
 package com.ratiug.dev.courrsera_recyclerview;
 
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -17,14 +19,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-
+    public static final String TAG = "DBG | MainActivity";
     List<RowType> items = new ArrayList<>();
     String[] usernameArray;
     String[] messageArray;
     int[] images;
 
+    String LIST_STATE_KEY ="LIST_STATE_KEY";
+
+    RecyclerView.LayoutManager mLM;
 
     MultiTypesAdapter multiTypesAdapter;
+    private Parcelable mListState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +45,15 @@ public class MainActivity extends AppCompatActivity {
         images = new int[]{R.drawable.picture_1, R.drawable.picture_2, R.drawable.picture_3, R.drawable.picture_4
                 , R.drawable.picture_5, R.drawable.picture_6, R.drawable.picture_7, R.drawable.picture_8};
 
-        items.add(new MessageRowType());
-        items.add(new ImageRowType());
+//        items.add(new MessageRowType());
+//        items.add(new ImageRowType());
 
 
         multiTypesAdapter = new MultiTypesAdapter(items, usernameArray, messageArray, images);
 
+        mLM = new LinearLayoutManager(this);
         recyclerView.setAdapter(multiTypesAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(mLM);
     }
 
     @Override
@@ -70,5 +77,30 @@ public class MainActivity extends AppCompatActivity {
                 multiTypesAdapter.notifyItemInserted(multiTypesAdapter.getItemCount());
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        Log.d(TAG, "onSaveInstanceState: ");
+        // Save list state
+        mListState = mLM.onSaveInstanceState();
+        state.putParcelable(LIST_STATE_KEY, mListState);
+    }
+
+    protected void onRestoreInstanceState(Bundle state) {
+        super.onRestoreInstanceState(state);
+        Log.d(TAG, "onRestoreInstanceState: ");
+        // Retrieve list state and list/item positions
+        if(state != null)
+            mListState = state.getParcelable(LIST_STATE_KEY);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+        if (mListState != null) {
+            mLM.onRestoreInstanceState(mListState);
+        }
     }
 }
