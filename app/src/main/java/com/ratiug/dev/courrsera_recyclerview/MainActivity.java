@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.ratiug.dev.courrsera_recyclerview.Adapter.MultiTypesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String [] messageArray;
     int[] images;
 
-    Random rnd = new Random();
+ //   Random rnd = new Random();
 
     MultiTypesAdapter multiTypesAdapter;
 
@@ -38,19 +40,19 @@ public class MainActivity extends AppCompatActivity {
         images = new int[]{R.drawable.picture_1, R.drawable.picture_2, R.drawable.picture_3, R.drawable.picture_4
                 ,R.drawable.picture_5,R.drawable.picture_6,R.drawable.picture_7,R.drawable.picture_8};
 
-        for (int i = 0; i < 7; i++) {
-            switch (rnd.nextInt(2)) {
-                case 0 :
-                    items.add(new MessageRowType("test1","messageArray"));
-                    break;
-                case 1 :
+                    items.add(new MessageRowType());
                     items.add(new ImageRowType());
-            }
-        }
+
 
         multiTypesAdapter = new MultiTypesAdapter(items,usernameArray, messageArray,images);
 
         recyclerView.setAdapter(multiTypesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">courrsera_RecyclerView</string>
+    <string name="add_message">Add Message</string>
+    <string name="add_picture">Add Picture</string>
 
     //
     <string-array name="usernames">

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/add_message"
+        android:id="@+id/addMessageAction"/>
+    <item
+        android:title="@string/add_picture"
+        android:id="@+id/addPictureAction"/>
+</menu>
