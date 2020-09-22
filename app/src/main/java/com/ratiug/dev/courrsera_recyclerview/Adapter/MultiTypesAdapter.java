@@ -78,13 +78,12 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //todo save date before remove
 
                 int itemPosition = holder.getAdapterPosition();
                 Log.d(TAG, "onClick: " + itemPosition);
                 mDataSet.remove(itemPosition);
                 notifyItemRemoved(itemPosition);
-                notifyItemRangeChanged(itemPosition,mDataSet.size());
             }
         });
     }
