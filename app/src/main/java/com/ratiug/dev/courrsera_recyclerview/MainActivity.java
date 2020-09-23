@@ -19,9 +19,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String SAVED_RECYCLER_VIEW_STATUS_ID = "SAVED_RECYCLER_VIEW_STATUS_ID";
-    private static final String SAVED_RECYCLER_VIEW_DATASET_ID = "SAVED_RECYCLER_VIEW_DATASET_ID";
-    private static final String SAVED_ITEMS = "SAVED_ITEMS";
     RecyclerView recyclerView;
     public static final String TAG = "DBG | MainActivity";
     List<RowType> items = new ArrayList<>();
@@ -35,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     MultiTypesAdapter multiTypesAdapter;
     private Parcelable mListState;
-    private ArrayList<? extends Parcelable> mDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         images = new int[]{R.drawable.picture_1, R.drawable.picture_2, R.drawable.picture_3, R.drawable.picture_4
                 , R.drawable.picture_5, R.drawable.picture_6, R.drawable.picture_7, R.drawable.picture_8};
 
-//        items.add(new MessageRowType());
-//        items.add(new ImageRowType());
+        items.add(new MessageRowType());
+        items.add(new ImageRowType());
         Log.d(TAG, "onCreate: ");
         multiTypesAdapter = new MultiTypesAdapter(items, usernameArray, messageArray, images);
 
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //todo methods
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         switch (id) {
             case R.id.addMessageAction:
