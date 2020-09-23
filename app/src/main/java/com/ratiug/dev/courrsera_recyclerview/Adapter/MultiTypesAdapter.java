@@ -78,7 +78,7 @@ public class MultiTypesAdapter extends RecyclerView.Adapter {
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { //todo save date before remove
+            public void onClick(View view) { //todo fix crash when click miss item
 
                 int itemPosition = holder.getAdapterPosition();
                 Log.d(TAG, "onClick: " + itemPosition);

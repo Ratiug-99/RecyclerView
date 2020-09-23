@@ -16,8 +16,12 @@ import com.ratiug.dev.courrsera_recyclerview.Adapter.MultiTypesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String SAVED_RECYCLER_VIEW_STATUS_ID = "SAVED_RECYCLER_VIEW_STATUS_ID";
+    private static final String SAVED_RECYCLER_VIEW_DATASET_ID = "SAVED_RECYCLER_VIEW_DATASET_ID";
+    private static final String SAVED_ITEMS = "SAVED_ITEMS";
     RecyclerView recyclerView;
     public static final String TAG = "DBG | MainActivity";
     List<RowType> items = new ArrayList<>();
@@ -27,10 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
     String LIST_STATE_KEY ="LIST_STATE_KEY";
 
-    RecyclerView.LayoutManager mLM;
+    RecyclerView.LayoutManager mLM = new LinearLayoutManager(this);
 
     MultiTypesAdapter multiTypesAdapter;
     private Parcelable mListState;
+    private ArrayList<? extends Parcelable> mDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
 //        items.add(new MessageRowType());
 //        items.add(new ImageRowType());
-
-
+        Log.d(TAG, "onCreate: ");
         multiTypesAdapter = new MultiTypesAdapter(items, usernameArray, messageArray, images);
 
-        mLM = new LinearLayoutManager(this);
+
+
         recyclerView.setAdapter(multiTypesAdapter);
         recyclerView.setLayoutManager(mLM);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,25 +70,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //todo methods
         int id = item.getItemId();
         switch (id) {
             case R.id.addMessageAction:
                 Toast.makeText(this, "Add Message Row", Toast.LENGTH_SHORT).show();
                 items.add(new MessageRowType());
                 multiTypesAdapter.notifyItemInserted(multiTypesAdapter.getItemCount());
+                recyclerView.scrollToPosition(multiTypesAdapter.getItemCount() - 1);
                 break;
             case R.id.addPictureAction:
                 Toast.makeText(this, "Add Picture Row", Toast.LENGTH_SHORT).show();
                 items.add(new ImageRowType());
                 multiTypesAdapter.notifyItemInserted(multiTypesAdapter.getItemCount());
+                recyclerView.scrollToPosition(multiTypesAdapter.getItemCount() - 1);
         }
         return super.onOptionsItemSelected(item);
     }
 
     protected void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
-        Log.d(TAG, "onSaveInstanceState: ");
+        Log.d(TAG, "onSaveInstanceState: " + items.size());
         // Save list state
         mListState = mLM.onSaveInstanceState();
         state.putParcelable(LIST_STATE_KEY, mListState);
@@ -98,9 +107,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: ");
+        Log.d(TAG, "onResume: " + items.size());
         if (mListState != null) {
             mLM.onRestoreInstanceState(mListState);
+            recyclerView.setLayoutManager(mLM);
         }
     }
+
+
 }
